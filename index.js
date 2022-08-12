@@ -1,7 +1,6 @@
-const { Intents, Collection } = require("discord.js");
+const { Intents } = require("discord.js");
 const Client = require("./Structures/Client.js");
-const mongoose = require("mongoose")
-const { Database } = require('quickmongo')
+const { Database } = require("quickmongo")
 const client = new Client({
 	  shards: "auto",
     allowedMentions: {
@@ -34,12 +33,8 @@ const client = new Client({
 
 module.exports = client;
 client.db = new Database(client.config.Mongoose)
-client.timeouts = new Collection()
-
-
+client.color = client.config.Bot.Color
  require("./Structures/Event")(client)
  require("./Structures/Command")(client)
  require("./Structures/slashCommand")(client)
-client.color = client.config.Bot.Color;
-
-client.start(client.config.Bot.ClientToken);
+client.start(client.config.Bot.ClientToken)
