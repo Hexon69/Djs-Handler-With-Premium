@@ -1,4 +1,4 @@
-const { Intents } = require("discord.js");
+const { Intents, Collection } = require("discord.js");
 const Client = require("./Structures/Client.js");
 const { Database } = require("quickmongo")
 const client = new Client({
@@ -32,6 +32,7 @@ const client = new Client({
 });
 
 module.exports = client;
+client.timeouts = new Collection();
 client.db = new Database(client.config.Mongoose)
 client.color = client.config.Bot.Color
  require("./Structures/Event")(client)
