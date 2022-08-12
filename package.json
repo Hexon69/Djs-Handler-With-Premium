@@ -19,6 +19,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx node index.js"
   },
-  "author": "blacky",
+  "author": "potato",
   "license": "MIT"
 }
